@@ -1,5 +1,6 @@
 package hu.nive.ujratervezes.zarovizsga.kennel;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,10 +11,12 @@ public class Kennel {
     public Kennel() {
         dogs = new ArrayList<>();
     }
+    
 
     public void addDog(Dog dog) {
         dogs.add(dog);
     }
+    
 
     public void feedAll() {
         for (Dog dog: dogs ) {
@@ -21,19 +24,21 @@ public class Kennel {
         }
     }
 
-    public void playWith(String name, int hours) {
-        for (Dog dog: dogs ) {
-            if (name.equals(dog.getName())) {
-                dog.play(hours);
-              
     public Dog findByName(String name) {
         for (Dog dog: dogs ) {
             if (dog.getName().equals(name)) {
                 return dog;
             }
         }
-      
-        throw new IllegalArgumentException("Cannot find dog with name " + name)
+        throw new IllegalArgumentException("Cannot find dog with name " + name);
+    }
+
+    public void playWith(String name, int hours) {
+        for (Dog dog: dogs ) {
+            if (name.equals(dog.getName())) {
+                dog.play(hours);
+            }
+        }
     }
 
     public List<String> getHappyDogNames(int minHappiness) {
@@ -50,3 +55,5 @@ public class Kennel {
         return new ArrayList<>(dogs);
     }
 }
+
+
